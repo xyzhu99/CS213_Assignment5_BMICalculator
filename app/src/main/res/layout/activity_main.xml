@@ -134,6 +134,7 @@
         android:id="@+id/calculateButton"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:onClick="displayBMI"
         android:text="Calculate BMI"
         android:textAllCaps="true"
         android:textSize="28sp"
