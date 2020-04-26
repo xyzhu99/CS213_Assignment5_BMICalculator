@@ -82,6 +82,21 @@
         app:layout_constraintStart_toEndOf="@+id/height"
         app:layout_constraintTop_toTopOf="@+id/height" />
 
+    <TextView
+        android:id="@+id/bmiResult"
+        android:layout_width="180dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="#58D61D"
+        android:gravity="center"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bmi"
+        app:layout_constraintStart_toEndOf="@+id/bmi"
+        app:layout_constraintTop_toTopOf="@+id/bmi"
+        app:layout_constraintVertical_bias="1.0" />
+
     <RadioGroup
         android:id="@+id/options"
         android:layout_width="300dp"

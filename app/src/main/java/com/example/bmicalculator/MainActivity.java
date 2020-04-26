@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     String hintWeightMetric = "Enter weight in kilograms";
     String hintHeightMetric = "Enter height in meters";
     String hintWeightEnglish = "Enter weight in pounds";
-    String hintHeightEnglish = "enter height in inches";
+    String hintHeightEnglish = "Enter height in inches";
 
     EditText weightInput;
     EditText heightInput;
