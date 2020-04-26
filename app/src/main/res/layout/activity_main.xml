@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/weight"
+        android:id="@+id/weightText"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_marginStart="40dp"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.183" />
 
     <TextView
-        android:id="@+id/bmi"
+        android:id="@+id/bmiText"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -30,13 +30,13 @@
         android:text="BMI"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/height"
+        app:layout_constraintEnd_toEndOf="@+id/heightText"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/height"
-        app:layout_constraintTop_toBottomOf="@+id/height" />
+        app:layout_constraintStart_toStartOf="@+id/heightText"
+        app:layout_constraintTop_toBottomOf="@+id/heightText" />
 
     <TextView
-        android:id="@+id/height"
+        android:id="@+id/heightText"
         android:layout_width="120dp"
         android:layout_height="35dp"
         android:layout_marginTop="20dp"
@@ -44,10 +44,10 @@
         android:text="Height"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/weight"
+        app:layout_constraintEnd_toEndOf="@+id/weightText"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/weight"
-        app:layout_constraintTop_toBottomOf="@+id/weight" />
+        app:layout_constraintStart_toStartOf="@+id/weightText"
+        app:layout_constraintTop_toBottomOf="@+id/weightText" />
 
     <EditText
         android:id="@+id/weightInput"
@@ -61,9 +61,9 @@
         android:hint="Enter weight"
         android:inputType="number"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/weight"
-        app:layout_constraintStart_toEndOf="@+id/weight"
-        app:layout_constraintTop_toTopOf="@+id/weight"
+        app:layout_constraintBottom_toBottomOf="@+id/weightText"
+        app:layout_constraintStart_toEndOf="@+id/weightText"
+        app:layout_constraintTop_toTopOf="@+id/weightText"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
@@ -78,9 +78,9 @@
         android:hint="Enter height"
         android:inputType="number"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/height"
-        app:layout_constraintStart_toEndOf="@+id/height"
-        app:layout_constraintTop_toTopOf="@+id/height" />
+        app:layout_constraintBottom_toBottomOf="@+id/heightText"
+        app:layout_constraintStart_toEndOf="@+id/heightText"
+        app:layout_constraintTop_toTopOf="@+id/heightText" />
 
     <TextView
         android:id="@+id/bmiResult"
@@ -92,9 +92,9 @@
         android:gravity="center"
         android:textSize="27sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bmi"
-        app:layout_constraintStart_toEndOf="@+id/bmi"
-        app:layout_constraintTop_toTopOf="@+id/bmi"
+        app:layout_constraintBottom_toBottomOf="@+id/bmiText"
+        app:layout_constraintStart_toEndOf="@+id/bmiText"
+        app:layout_constraintTop_toTopOf="@+id/bmiText"
         app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.499">
 
         <RadioButton
-            android:id="@+id/metric"
+            android:id="@+id/metricButton"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -119,7 +119,7 @@
             android:textSize="18sp" />
 
         <RadioButton
-            android:id="@+id/english"
+            android:id="@+id/englishButton"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -129,5 +129,34 @@
             android:textSize="18sp" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:text="Calculate BMI"
+        android:textAllCaps="true"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
+
+    <Button
+        android:id="@+id/adviceButton"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:text="Get Advice"
+        android:textAllCaps="true"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/calculateButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/calculateButton"
+        app:layout_constraintTop_toBottomOf="@+id/calculateButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
