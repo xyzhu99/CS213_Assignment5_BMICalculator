@@ -7,6 +7,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * The second Activity displays the users BMI classification along with a picture of that classification.
+ * @author Michael Yen, Xuyuan Zhu
+ */
 public class AdviceActivity extends AppCompatActivity {
 
     // list out and initialize all the constants and strings
@@ -17,6 +21,10 @@ public class AdviceActivity extends AppCompatActivity {
     ImageView adviceImage;
     Button back;
 
+    /**
+     * Things to do upon creation.
+     * @param savedInstanceState the saved Instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +58,10 @@ public class AdviceActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Go back to the previous Activity.
+     * @param view the current View
+     */
     public void goBack(View view) {
         onBackPressed();
     }

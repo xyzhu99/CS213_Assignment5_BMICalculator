@@ -3,10 +3,13 @@ package com.example.bmicalculator;
 import android.content.Intent;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The first Activity allows the user to enter in their weight and height, and receive their calculated BMI.
+ * @author Michael Yen, Xuyuan Zhu
+ */
 public class MainActivity extends AppCompatActivity {
 
     // list out and initialize all the constants and strings
@@ -24,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
     Button calculateButton;
     Button adviceButton;
 
+    /**
+     * Things to do upon creation.
+     * @param savedInstanceState the saved Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,25 +44,34 @@ public class MainActivity extends AppCompatActivity {
         englishButton = findViewById(R.id.englishButton);
         calculateButton = findViewById(R.id.calculateButton);
         adviceButton = findViewById(R.id.adviceButton);
-
-        return;
-
     }
 
+    /**
+     * Changes the hints of the input boxes depending on if Metric units are selected.
+     * @param view the current view
+     */
     // change hint of input boxes when chose metric
     public void changeHintMetric(View view) {
         weightInput.setHint(hintWeightMetric);
         heightInput.setHint(hintHeightMetric);
-        return;
     }
 
+    /**
+     * Changes the hints of the input boxes depending on if Imperial units are selected.
+     * @param view the current view
+     */
     // change hint of input boxes when chose english
     public void changeHintEnglish(View view) {
         weightInput.setHint(hintWeightEnglish);
         heightInput.setHint(hintHeightEnglish);
-        return;
     }
 
+    /**
+     * Calculates the BMI in Metric units.
+     * @param weight the weight of the person in kg
+     * @param height the height of the person in meters
+     * @return the corresponding BMI
+     */
     // calculate bmi in metric units, returns a double
     public double getBmiMetric(double weight, double height) {
         double temp;
@@ -66,6 +82,12 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
+    /**
+     * Calculates the BMI in Imperial units.
+     * @param weight the weight of the person in lb
+     * @param height the height of the person in inches
+     * @return the corresponding BMI
+     */
     // calculate bmi in english units, returns a double
     public double getBmiEnglish(double weight, double height) {
         double temp;
@@ -76,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
+    /**
+     * Displays the BMI on the app. If they have not entered vital information, does nothing and lets the user know.
+     * @param view the current view
+     */
     // display BMI value on screen when calculate button is clicked
     public void displayBMI(View view) {
 
@@ -90,8 +116,8 @@ public class MainActivity extends AppCompatActivity {
 
         double weight = Double.parseDouble(weightInput.getText().toString());
         double height = Double.parseDouble(heightInput.getText().toString());
-
         double bmi;
+
         if(metricButton.isChecked()) {
             bmi = getBmiMetric(weight, height);
         }
@@ -107,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
         bmiResult.setText(result);
     }
 
+    /**
+     * Sends the user to the next page, where they will receive the classification of their BMI.
+     * If they have not calculated their BMI yet, does nothing and lets the user know.
+     * @param view the current view
+     */
     public void getAdvice(View view) {
         if(bmiResult.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(),"Must calculate BMI before you can show advice!", Toast.LENGTH_SHORT).show();
