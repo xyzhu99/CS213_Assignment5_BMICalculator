@@ -31,26 +31,26 @@ public class AdviceActivity extends AppCompatActivity {
     /**
      * Changes the displayed picture and BMI classification based on the given BMI.
      */
-    public void displayAdvice(){
-        if(bmi < 18.5){
+    public void displayAdvice() {
+        if(bmi < 18.5) {
             adviceText.setText("Underweight");
             adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.underweight));
         }
-        else if(bmi < 25){
+        else if(bmi < 25) {
             adviceText.setText("Normal");
             adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.normal));
         }
-        else if(bmi < 30){
+        else if(bmi < 30) {
             adviceText.setText("Overweight");
             adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.overweight));
         }
-        else{
+        else {
             adviceText.setText("Obese");
             adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.obese));
         }
     }
 
-    public void goBack(View view){
+    public void goBack(View view) {
         onBackPressed();
     }
 }

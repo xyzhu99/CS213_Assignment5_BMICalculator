@@ -1,14 +1,11 @@
 package com.example.bmicalculator;
 
 import android.content.Intent;
+import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // calculate bmi in metric units, returns a double
-    public double getBmiMetric(double weight, double height){
+    public double getBmiMetric(double weight, double height) {
         double temp;
         temp = weight/(height*height);
         temp *= 100;
@@ -70,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // calculate bmi in english units, returns a double
-    public double getBmiEnglish(double weight, double height){
+    public double getBmiEnglish(double weight, double height) {
         double temp;
         temp = (weight*703)/(height*height);
         temp *= 100;
@@ -82,25 +79,39 @@ public class MainActivity extends AppCompatActivity {
     // display BMI value on screen when calculate button is clicked
     public void displayBMI(View view) {
 
+        if(weightInput.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Must enter in a number for weight!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if(heightInput.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Must enter in a number for height!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         double weight = Double.parseDouble(weightInput.getText().toString());
         double height = Double.parseDouble(heightInput.getText().toString());
 
         double bmi;
-        if ( metricButton.isChecked() ){
+        if(metricButton.isChecked()) {
             bmi = getBmiMetric(weight, height);
-        } else if ( englishButton.isChecked() ){
+        }
+        else if(englishButton.isChecked()) {
             bmi = getBmiEnglish(weight, height);
-        } else {
-            // *display error message here*
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"Must indicate either Metric or Imperial units!", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String result = String.format("%.2f", bmi);
         bmiResult.setText(result);
-        return;
     }
 
-    public void getAdvice(View view){
+    public void getAdvice(View view) {
+        if(bmiResult.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Must calculate BMI before you can show advice!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent adviceIntent = new Intent(this, AdviceActivity.class);
         adviceIntent.putExtra("BMI", bmiResult.getText().toString());
         startActivity(adviceIntent);
