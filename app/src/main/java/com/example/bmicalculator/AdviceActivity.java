@@ -1,6 +1,6 @@
 package com.example.bmicalculator;
 
-import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,7 +10,7 @@ import android.os.Bundle;
 public class AdviceActivity extends AppCompatActivity {
 
     // list out and initialize all the constants and strings
-    int bmi;
+    double bmi;
 
     // list out all components such as buttons and text inputs in the AdviceActivity
     TextView adviceText;
@@ -24,6 +24,8 @@ public class AdviceActivity extends AppCompatActivity {
         adviceText = findViewById(R.id.adviceText);
         adviceImage = findViewById(R.id.adviceImage);
         back = findViewById(R.id.back);
+        bmi = Double.parseDouble(getIntent().getStringExtra("BMI"));
+        displayAdvice();
     }
 
     /**
@@ -32,20 +34,23 @@ public class AdviceActivity extends AppCompatActivity {
     public void displayAdvice(){
         if(bmi < 18.5){
             adviceText.setText("Underweight");
-            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.Underweight));
+            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.underweight));
         }
         else if(bmi < 25){
             adviceText.setText("Normal");
-            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.Normal));
+            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.normal));
         }
         else if(bmi < 30){
             adviceText.setText("Overweight");
-            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.Overweight));
+            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.overweight));
         }
         else{
             adviceText.setText("Obese");
-            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.Obese));
+            adviceImage.setImageDrawable(getApplicationContext().getDrawable(R.drawable.obese));
         }
     }
 
+    public void goBack(View view){
+        onBackPressed();
+    }
 }

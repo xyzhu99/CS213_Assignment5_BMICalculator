@@ -1,5 +1,6 @@
 package com.example.bmicalculator;
 
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -97,5 +98,11 @@ public class MainActivity extends AppCompatActivity {
         String result = String.format("%.2f", bmi);
         bmiResult.setText(result);
         return;
+    }
+
+    public void getAdvice(View view){
+        Intent adviceIntent = new Intent(this, AdviceActivity.class);
+        adviceIntent.putExtra("BMI", bmiResult.getText().toString());
+        startActivity(adviceIntent);
     }
 }

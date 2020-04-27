@@ -151,6 +151,7 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
+        android:onClick="getAdvice"
         android:text="Get Advice"
         android:textAllCaps="true"
         android:textSize="28sp"
