@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
      * Changes the hints of the input boxes depending on if Metric units are selected.
      * @param view the current view
      */
-    // change hint of input boxes when chose metric
     public void changeHintMetric(View view) {
         weightInput.setHint(hintWeightMetric);
         heightInput.setHint(hintHeightMetric);
@@ -60,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
      * Changes the hints of the input boxes depending on if Imperial units are selected.
      * @param view the current view
      */
-    // change hint of input boxes when chose english
     public void changeHintEnglish(View view) {
         weightInput.setHint(hintWeightEnglish);
         heightInput.setHint(hintHeightEnglish);
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
      * @param height the height of the person in meters
      * @return the corresponding BMI
      */
-    // calculate bmi in metric units, returns a double
     public double getBmiMetric(double weight, double height) {
         double temp;
         temp = weight/(height*height);
@@ -88,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
      * @param height the height of the person in inches
      * @return the corresponding BMI
      */
-    // calculate bmi in english units, returns a double
     public double getBmiEnglish(double weight, double height) {
         double temp;
         temp = (weight*703)/(height*height);
@@ -102,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
      * Displays the BMI on the app. If they have not entered vital information, does nothing and lets the user know.
      * @param view the current view
      */
-    // display BMI value on screen when calculate button is clicked
     public void displayBMI(View view) {
 
         if(weightInput.getText().toString().isEmpty()){
